@@ -3,12 +3,11 @@
 describe("todo action", () => {
   beforeEach(() => {
     cy.visit("https://the-internet.herokuapp.com/");
+    cy.get(":nth-child(39) > a").click();
+    cy.get('[href="/shifting_content/menu"]').click();
   });
 
   it("verify that table has 5 elements", () => {
-    cy.get(":nth-child(39) > a").click();
-    cy.get('[href="/shifting_content/menu"]').click();
-
     cy.get("ul > li").should(($li) => {
       // should have found 5 elements
       expect($li).to.have.length(5);
@@ -16,9 +15,6 @@ describe("todo action", () => {
   });
 
   it("verify the content of 5 elements is correct", () => {
-    cy.get(":nth-child(39) > a").click();
-    cy.get('[href="/shifting_content/menu"]').click();
-
     cy.get("ul > li").should(($li) => {
       expect($li.eq(0)).to.contain("Home");
       expect($li.eq(1)).to.contain("About");
