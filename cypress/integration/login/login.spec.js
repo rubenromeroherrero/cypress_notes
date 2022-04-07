@@ -12,21 +12,22 @@ describe("login tests", () => {
     cy.get("#username").type("tomsmith");
     cy.get("#password").type("SuperSecretPassword!");
     cy.get(".fa").click();
-    cy.get("#flash").should("contain", "You logged into a secure area");
+    cy.get("#flash").should("contain", "You logged into a secure area!");
   });
 
+  // it.only => solo ejecutamos ese prueba
   // it.skip => saltamos ese caso de prueba
-  it.skip("not valid user can't login", () => {
+  it("not valid user can't login", () => {
     cy.get("#username").type("Tmsmith");
     cy.get("#password").type("SuperSecretPassword!");
     cy.get(".fa").click();
-    cy.get("#flash").should("contain", "Your username is invalid");
+    cy.get("#flash").should("contain", "Your username is invalid!");
   });
 
   it("not valid password can't login", () => {
     cy.get("#username").type("tomsmith");
     cy.get("#password").type("false");
-    cy.get(".fa {Enter}");
-    cy.get("#flash").should("contain", "Your password is invalid");
+    cy.get(".fa").click();
+    cy.get("#flash").should("contain", "Your password is invalid!");
   });
 });
