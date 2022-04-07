@@ -8,10 +8,11 @@ describe("todo action", () => {
   });
 
   it("verify that table has 5 elements", () => {
-    cy.get("ul > li").should(($li) => {
-      // should have found 5 elements
-      expect($li).to.have.length(5);
-    });
+    cy.get("ul li").should("have.length", 5);
+    // cy.get("ul > li").should(($li) => {
+    //   // should have found 5 elements
+    //   expect($li).to.have.length(5);
+    // });
   });
 
   it("verify the content of 5 elements is correct", () => {
