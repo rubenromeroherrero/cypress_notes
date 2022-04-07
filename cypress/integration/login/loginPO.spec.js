@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
-import { HomePage } from "../../page-objects/home-page";
-import { LoginPage } from "../../page-objects/login-page";
-import { SecurePage } from "../../page-objects/secure-page";
+import { HomePage } from "../../page-objects/login/home-page";
+import { LoginPage } from "../../page-objects/login/login-page";
+import { SecurePage } from "../../page-objects/login/secure-page";
 
 // Test a nivel de sistemas E2E
 // test suite/set [batería de pruebas]
