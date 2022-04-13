@@ -32,13 +32,19 @@ describe("todos tests", () => {
 
   it("Mostrar todas las tareas", () => {
     todosPage.checkAllTodos(":nth-child(2) > a");
+    // cy.get(".todo-list > li > .view > label").should(($label) => {
+    //   expect($label.eq(1)).to.contain("Cypress");
+    // });
   });
 
   it("Revisar tareas activas", () => {
+    todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
     todosPage.checkActiveTodos(":nth-child(2) > a");
+    todosPage.checkCompletedTodos(1);
   });
 
   it("Mostrar tareas completadas", () => {
     todosPage.checkActiveTodos(":nth-child(3) > a");
+    todosPage.checkCompletedTodos(0);
   });
 });
