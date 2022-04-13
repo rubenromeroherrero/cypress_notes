@@ -13,12 +13,13 @@ describe("todos tests", () => {
 
   it("Introducir tarea", () => {
     todosPage.typeAnewTodo("Cucumber");
+    todosPage.checkLengthOfNumberOfTodos(3);
   });
 
-  it.only("Completar una tarea", () => {
+  it("Completar una tarea", () => {
     todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
     cy.get(":nth-child(2)").should("have.class", "completed");
-    cy.get(":nth-child(2) > .view > .toggle").should("be.checked");
+    todosPage.checkIfTodoIsChecked(":nth-child(2) > .view > .toggle");
     cy.get(".completed").should("have.css", "font-size", "24px");
     // cy.get(".completed > label").should(
     //   "have.css",
@@ -29,6 +30,7 @@ describe("todos tests", () => {
 
   it("Borrar una tarea", () => {
     todosPage.deleteOneTodo(":nth-child(2) > .view > .destroy");
+    todosPage.checkLengthOfNumberOfTodos(1);
   });
 
   it("Mostrar todas las tareas", () => {

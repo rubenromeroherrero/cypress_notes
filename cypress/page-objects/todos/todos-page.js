@@ -27,4 +27,12 @@ export class TodosPage {
   checkCompletedTodos(completedOption) {
     cy.get(completedOption).click();
   }
+
+  checkLengthOfNumberOfTodos(number) {
+    cy.get(".todo-list > li").should("have.length", number);
+  }
+
+  checkIfTodoIsChecked(numberOfTodoToCheck) {
+    cy.get(numberOfTodoToCheck).should("be.checked");
+  }
 }
