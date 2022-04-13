@@ -30,11 +30,13 @@ describe("todos tests", () => {
     todosPage.checkLengthOfNumberOfTodos(1);
   });
 
-  it("Mostrar todas las tareas", () => {
+  it.only("Mostrar todas las tareas", () => {
     todosPage.checkAllTodos(":nth-child(2) > a");
-    // cy.get(".todo-list > li > .view > label").should(($label) => {
-    //   expect($label.eq(1)).to.contain("Cypress");
-    // });
+    //Checkeamos que el contenido de los todos para cada item se corresponde con el introducido al iniciar
+    cy.get(".todo-list > li > .view > label").should(($label) => {
+      expect($label.eq(0)).contain("Cypress");
+      expect($label.eq(1)).contain("Selenium");
+    });
   });
 
   it("Revisar tareas activas", () => {
