@@ -18,14 +18,11 @@ describe("todos tests", () => {
 
   it("Completar una tarea", () => {
     todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
+    //checkeamos que se añada la clase completed
     cy.get(":nth-child(2)").should("have.class", "completed");
+    //comprobar que esté marcado
     todosPage.checkIfTodoIsChecked(":nth-child(2) > .view > .toggle");
     cy.get(".completed").should("have.css", "font-size", "24px");
-    // cy.get(".completed > label").should(
-    //   "have.css",
-    //   "text-decoration",
-    //   "line-through"
-    // );
   });
 
   it("Borrar una tarea", () => {
