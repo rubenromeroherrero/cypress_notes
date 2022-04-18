@@ -45,4 +45,12 @@ export class TodosPage {
   checkFontSize() {
     cy.get(".completed").should("have.css", "font-size", "24px");
   }
+
+  checkEqualContentOfTodos() {
+    //Checkeamos que el contenido de los todos para cada item se corresponde con el introducido al iniciar
+    cy.get(".todo-list > li > .view > label").should(($label) => {
+      expect($label.eq(0)).contain("Cypress");
+      expect($label.eq(1)).contain("Selenium");
+    });
+  }
 }

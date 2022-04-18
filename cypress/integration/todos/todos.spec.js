@@ -30,11 +30,7 @@ describe("todos tests", () => {
 
   it("Mostrar todas las tareas", () => {
     todosPage.checkAllTodos(":nth-child(2) > a");
-    //Checkeamos que el contenido de los todos para cada item se corresponde con el introducido al iniciar
-    cy.get(".todo-list > li > .view > label").should(($label) => {
-      expect($label.eq(0)).contain("Cypress");
-      expect($label.eq(1)).contain("Selenium");
-    });
+    todosPage.checkEqualContentOfTodos();
   });
 
   it("Revisar tareas activas", () => {
