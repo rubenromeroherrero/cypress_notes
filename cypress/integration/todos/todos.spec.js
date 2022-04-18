@@ -41,7 +41,7 @@ describe("todos tests", () => {
     todosPage.checkLengthOfNumberOfTodos(1);
   });
 
-  it.only("Mostrar tareas completadas", () => {
+  it("Mostrar tareas completadas", () => {
     todosPage.checkActiveTodos(":nth-child(3) > a");
     todosPage.checkLengthOfNumberOfTodos(0);
   });
