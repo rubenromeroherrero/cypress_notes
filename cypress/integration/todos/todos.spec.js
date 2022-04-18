@@ -18,11 +18,9 @@ describe("todos tests", () => {
 
   it("Completar una tarea", () => {
     todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
-    //checkeamos que se añada la clase completed
-    cy.get(":nth-child(2)").should("have.class", "completed");
+    todosPage.selectOneTodoAndValidateCompletedClass();
     //comprobar que esté marcado
     todosPage.checkIfTodoIsChecked(":nth-child(2) > .view > .toggle");
-    cy.get(".completed").should("have.css", "font-size", "24px");
   });
 
   it("Borrar una tarea", () => {
@@ -30,7 +28,7 @@ describe("todos tests", () => {
     todosPage.checkLengthOfNumberOfTodos(1);
   });
 
-  it.only("Mostrar todas las tareas", () => {
+  it("Mostrar todas las tareas", () => {
     todosPage.checkAllTodos(":nth-child(2) > a");
     //Checkeamos que el contenido de los todos para cada item se corresponde con el introducido al iniciar
     cy.get(".todo-list > li > .view > label").should(($label) => {

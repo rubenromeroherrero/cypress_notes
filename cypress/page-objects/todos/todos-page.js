@@ -9,6 +9,12 @@ export class TodosPage {
     cy.get(numberTodo).click();
   }
 
+  selectOneTodoAndValidateCompletedClass() {
+    //checkeamos que se añada la clase completed
+    cy.get(":nth-child(2)").should("have.class", "completed");
+    cy.get(".completed").should("have.css", "font-size", "24px");
+  }
+
   deleteOneTodo(numberTodoToDelete) {
     //forzamos que esté activo
     // cy.get(numberTodoToDelete).click({ force: true });
@@ -34,5 +40,9 @@ export class TodosPage {
 
   checkIfTodoIsChecked(numberOfTodoToCheck) {
     cy.get(numberOfTodoToCheck).should("be.checked");
+  }
+
+  checkFontSize() {
+    cy.get(".completed").should("have.css", "font-size", "24px");
   }
 }
