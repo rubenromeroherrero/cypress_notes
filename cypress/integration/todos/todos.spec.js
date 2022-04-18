@@ -12,7 +12,9 @@ describe("todos tests", () => {
   });
 
   it("Introducir tarea", () => {
+    //Introducir nueva tarea
     todosPage.typeAnewTodo("Cucumber");
+    // Comprobar longitud del ul
     todosPage.checkLengthOfNumberOfTodos(3);
   });
 
@@ -36,11 +38,11 @@ describe("todos tests", () => {
   it("Revisar tareas activas", () => {
     todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
     todosPage.checkActiveTodos(":nth-child(2) > a");
-    todosPage.checkCompletedTodos(1);
+    todosPage.checkLengthOfNumberOfTodos(1);
   });
 
-  it("Mostrar tareas completadas", () => {
+  it.only("Mostrar tareas completadas", () => {
     todosPage.checkActiveTodos(":nth-child(3) > a");
-    todosPage.checkCompletedTodos(0);
+    todosPage.checkLengthOfNumberOfTodos(0);
   });
 });
