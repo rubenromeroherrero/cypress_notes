@@ -31,7 +31,7 @@ describe("todos tests", () => {
   });
 
   it("Mostrar todas las tareas", () => {
-    todosPage.checkAllTodos(":nth-child(2) > a");
+    todosPage.checkAllTodos(":nth-child(1) > a");
     todosPage.checkEqualContentOfTodos();
   });
 
