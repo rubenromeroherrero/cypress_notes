@@ -22,6 +22,7 @@ describe("todos tests", () => {
     todosPage.selectOneTodo(":nth-child(2) > .view > .toggle");
     todosPage.selectOneTodoAndValidateCompletedClass();
     //comprobar que esté marcado
+
     todosPage.checkIfTodoIsChecked(":nth-child(2) > .view > .toggle");
   });
 

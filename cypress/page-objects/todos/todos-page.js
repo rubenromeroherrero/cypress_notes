@@ -12,6 +12,9 @@ export class TodosPage {
   selectOneTodoAndValidateCompletedClass() {
     //checkeamos que se añada la clase completed
     cy.get(":nth-child(2)").should("have.class", "completed");
+    cy.get(".completed > .view > label")
+      .should("have.css", "text-decoration")
+      .and("match", /line-through/);
     cy.get(".completed").should("have.css", "font-size", "24px");
   }
 
